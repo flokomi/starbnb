@@ -24,16 +24,17 @@ puts "The final frontier..."
 
 puts 'Creating 8 fake spaceships...'
 
-8.times do
-  spaceship = Spaceship.new(
-    name: Faker::Space.nasa_space_craft.to_s,
-    price: rand(150..100_000),
-    capacity: rand(1..50),
-    user_id: rand(1..3)
-  )
-  spaceship.save!
+all_users = User.all
+all_users.each do |user|
+  4.times do
+  Spaceship.create(
+      name: Faker::Space.nasa_space_craft.to_s,
+      price: rand(150..100_000),
+      capacity: rand(1..50),
+      user: user)
+ end
 end
 
-puts "Blast off!" 
+puts "Blast off!"
 
 puts "#{Spaceship.count} spaceships were created. #{User.count} users were created."
