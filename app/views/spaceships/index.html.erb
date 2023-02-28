@@ -1,2 +1,11 @@
-<h1>Spaceships#index</h1>
-<p>Find me in app/views/spaceships/index.html.erb</p>
+<h1>All Spaceships</h1>
+  <% @spaceships.each do |spaceship| %>
+    <li class="list-group-item">
+        <p> <%=  link_to spaceship.name, spaceship_path(spaceship) %>
+        </p>
+        <p> $<%=  spaceship.price %>
+        </p>
+        <p> Capacity: <%=  spaceship.capacity %>
+        </p>
+    </li>
+     <% end %>
