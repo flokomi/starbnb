@@ -1,0 +1,9 @@
+<div class="container">
+<h1>Create a new Spaceship:</h1>
+  <%= simple_form_for @spaceship do |f| %>
+    <%= f.input :name %>
+    <%= f.input :price %>
+    <%= f.input :capacity %>
+    <%= f.button :submit %>
+  <% end %>
+</div>
