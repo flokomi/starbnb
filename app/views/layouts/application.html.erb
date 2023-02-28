@@ -13,7 +13,18 @@
   <body>
     <%= yield %>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+
+
+    <div class="footer-container"><%= render "shared/footer" %></div>
   </body>
 </html>
+
+<!-- WE SHOULD USE THIS TO STRUCTURE OUR PAGES - WATCH MESSAGE ON SLACK FROM ALEX
+
+<%# <div class="page-container">
+ <div class="navbar-container"><%= render "shared/navbar" %></div>
+ <div class="content-container"><%= yield %></div>
+ <div class="footer-container"><%= render "shared/footer" %></div>
+</div> %>
+
+-->
