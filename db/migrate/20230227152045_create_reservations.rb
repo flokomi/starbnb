@@ -7,7 +7,7 @@ class CreateReservations < ActiveRecord::Migration[7.0]
       t.integer :price
       t.integer :total_guests
       t.references :spaceship, null: false, foreign_key: true
-      t.references :owner, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end
