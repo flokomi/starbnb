@@ -8,8 +8,8 @@
 
 require 'faker'
 
-User.destroy_all
 Spaceship.destroy_all
+User.destroy_all
 
 puts 'Creating 3 fake users...'
 3.times do
@@ -27,11 +27,12 @@ puts 'Creating 8 fake spaceships...'
 all_users = User.all
 all_users.each do |user|
   4.times do
-  Spaceship.create(
-      name: Faker::Space.nasa_space_craft.to_s,
-      price: rand(150..100_000),
-      capacity: rand(1..50),
-      user: user)
+  Spaceship.create!(
+    name: Faker::Name.first_name.to_s,
+    price: rand(150..100_000),
+    capacity: rand(1..50),
+    user: user
+  )
  end
 end
 
