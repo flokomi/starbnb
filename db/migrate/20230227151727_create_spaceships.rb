@@ -4,7 +4,7 @@ class CreateSpaceships < ActiveRecord::Migration[7.0]
       t.string :name
       t.integer :price
       t.integer :capacity
-      t.references :owner, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end
