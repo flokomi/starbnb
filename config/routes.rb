@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   resources :spaceships, only: %i[index show new create] do
     resources :reservations, only: [:create]
   end
+
+  get "dashboard", to: 'reservations#dashboard'
 end

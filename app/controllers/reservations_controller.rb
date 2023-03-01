@@ -1,7 +1,7 @@
 class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
-    @reservation.user = User.last # MUST BE CURRENT USER
+    @reservation.user = current_user
     @spaceship = Spaceship.find(params[:spaceship_id])
     @reservation.spaceship = @spaceship
 
@@ -12,6 +12,12 @@ class ReservationsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def dashboard
+    @spaceships = Spaceship.where("user_id = #{current_user.id}")
+    @reservations = Reservation.where("user_id = #{current_user.id}")
+    @spaceships_all = Spaceship.all
   end
 
   private
