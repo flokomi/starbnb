@@ -1,0 +1,16 @@
+.card-create-spaceship {
+  background-color: white;
+  border-radius: 10px;
+  width: 300px;
+}
+
+.content-create-spaceship {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  h1 {
+    padding: 10px;
+  }
+}
