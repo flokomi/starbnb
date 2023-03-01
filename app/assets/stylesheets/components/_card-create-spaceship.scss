@@ -1,6 +1,12 @@
+.grip-create-card {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
 .card-create-spaceship {
   color: white;
   width: 280px;
+
 }
 
 .content-create-spaceship {

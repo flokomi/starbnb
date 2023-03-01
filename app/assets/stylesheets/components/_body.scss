@@ -3,7 +3,7 @@
 .background-star {
   background-image: url(https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1793&q=80);
 
-  height: 100%;
+
 }
 
 * {
@@ -12,8 +12,7 @@
 }
 
 .display-body {
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding: 40px 0;
 }
 
 a {
@@ -25,8 +24,7 @@ body {
 }
 
 .wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: grid;
   min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
 }
