@@ -8,6 +8,11 @@
         <p>Capacity: <%= @spaceship.capacity %></p>
       </div>
 
+      <% if @spaceship.user_id == @user.id %>
+      <div>
+        <h1> This is your spaceship! </h1>
+      </div>
+      <% else %>
       <div>
         <h2 class="form-h2">Do a reservation:</h2>
         <%= simple_form_for [@spaceship, @reservation] do |f| %>
@@ -17,6 +22,7 @@
           <%= f.button :submit, class: "btn btn-back" %>
         <% end %>
       </div>
+      <% end %>
     </div>
   </div>
 </div>
