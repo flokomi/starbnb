@@ -11,13 +11,19 @@
   </head>
 
   <body>
-    <div class="navbar-container"><%= render "shared/navbar" %></div>
-    <%= yield %>
 
+   <div class="wrapper">
+      <%= render "shared/navbar" %>
+      <div class="container">
+        <%= yield %>
+      </div>
+      <%= render "shared/footer" %>
+   </div>
 
-    <%= render "shared/flashes" %>
-    <div class="footer-container"><%= render "shared/footer" %></div>
+    <div><%= render "shared/flashes" %></div>
+
   </body>
+
 </html>
 
 <!-- WE SHOULD USE THIS TO STRUCTURE OUR PAGES - WATCH MESSAGE ON SLACK FROM ALEX

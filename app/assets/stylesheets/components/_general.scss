@@ -7,15 +7,37 @@ body {
   font-family: "Nunito Sans", sans-serif;
 }
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
 a {
   text-decoration: none;
 }
 
+.display-body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+// Grid index
 .grid-four-col {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 30px;
 }
+
+// Grid show
+.grid-show {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
 
 @media (max-width: 992px) {
   .grid-four-col {
@@ -29,10 +51,7 @@ a {
   }
 }
 
-.display-body {
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
+
 
 /* INDEX */
 
