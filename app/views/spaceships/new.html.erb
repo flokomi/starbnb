@@ -2,12 +2,12 @@
   <div class="container display-body">
     <div class="card-create-spaceship">
       <div class="content-create-spaceship">
-        <h1>Create a new Spaceship:</h1>
+        <h1>Add a new Spaceship:</h1>
         <%= simple_form_for @spaceship do |f| %>
           <%= f.input :name %>
           <%= f.input :price %>
           <%= f.input :capacity %>
-          <%= f.button :submit %>
+          <%= f.button :submit, class: "btn btn-primary"%>
         <% end %>
       </div>
     </div>
