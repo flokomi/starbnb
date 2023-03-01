@@ -1,10 +1,12 @@
 <div class="background-star">
   <div class="container display-body">
     <div class="grid-show">
-      <div class="card-info">
-        <h1><%= @spaceship.name %></h1>
-        <p>Price: € <%= @spaceship.price %></p>
-        <p>Capacity: <%= @spaceship.capacity %></p>
+      <div class="card-spaceship">
+        <img src="https://ia802302.us.archive.org/4/items/the-spaceship-s-01-e-03-monster/1c.jpg?cnt=0" alt="">
+        <div class="card-details">
+          <h1><%= @spaceship.name %></h1>
+          <p><strong>€<%= @spaceship.price %></strong> day | Capacity: <%= @spaceship.capacity %></p>
+        </div>
       </div>
 
       <% if @spaceship.user_id == @user.id %>
@@ -21,7 +23,7 @@
             <%= f.button :submit, class: "btn btn-primary" %>
           <% end %>
         </div>
-       <% end %>
+      <% end %>
     </div>
   </div>
 </div>
