@@ -8,7 +8,7 @@ class ReservationsController < ApplicationController
     set_end_price_in_reservation
 
     if @reservation.save
-      redirect_to spaceship_path(@reservation)
+      redirect_to dashboard_path
     else
       render :new, status: :unprocessable_entity
     end
