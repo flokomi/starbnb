@@ -1,43 +1,64 @@
 <% if @spaceships.empty? && @reservations.empty? %>
-      <p>No reservations or spaceships.</p>
+<div class="white-text">
+      <h1>No reservations or spaceships.</h1>
+      </div>
+
   <% elsif @spaceships.empty? %>
+  <div class="white-text">
     <h1> Hello! Here are your reservations: </h1>
-      <% @reservations.each do |reservation| %>
-        <% spaceship = reservation.spaceship %>
-          <h5> <%= spaceship.name %> </h5>
-            <% @reservations.each do |reservation| %>
-            <p> Cost: $<%= reservation.price %> </p>
-            <% end %>
-      <% end %>
-
-
-
-
-  <% elsif @spaceships.empty? == false && @reservations.empty? %>
-    <p> Your spaceships: </p>
-     <% @spaceships.each do | spaceship | %>
-     <%= spaceship.name %>
-     <% end %>
-     <% elsif @spaceships.empty? == false && @reservations.empty? == false %>
-      <h1> Here are your spaceships and guest bookings: </h1>
-        <% @spaceships.each do |spaceship| %>
-        <%= spaceship.name %>
-          <% @reservations_all.each do |reservation| %>
-            <% if reservation.spaceship_id == spaceship.id %>
-              <% space_user_id = reservation.user_id %>
-               <% res_user = User.find(space_user_id) %>
-                <%= res_user.name %>
-                  <p> Your guest's reservation price: <%= reservation.price %> </p>
-                <% raise %>
-            <% end %>
+    </div>
+      <div class="container display-body">
+        <div class="grid-four-col">
+          <% @reservations.each do |reservation| %>
+            <div class="card">
+             <div class="card-body">
+              <% spaceship = reservation.spaceship %>
+                <h5 class="card-title"> <%= spaceship.name %> </h5>
+                <p class="card-text"> Cost: $<%= reservation.price %> </p>
+              </div>
+            </div>
           <% end %>
-        <% end %>
+        </div>
+      </div>
 
+  <% else %>
+
+  <div class="white-text">
+        <h1> Here are your spaceships and guest bookings: </h1>
+        </div>
+         <div class="container display-body">
+          <div class="grid-four-col">
+           <% @spaceships.each do |spaceship| %>
+            <div class="card">
+             <div class="card-body">
+              <h5 class="card-title"> <%= spaceship.name %> </h5>
+               <% @reservations_all.each do |reservation| %>
+                <% if reservation.spaceship_id == spaceship.id %>
+                  <% space_user_id = reservation.user_id %>
+                    <% res_user = User.find(space_user_id) %>
+                    <p class="card-text"> Guest name: <%= res_user.name %> </p>
+                    <p class="card-text"> Your guest's reservation price: $<%= reservation.price %> </p>
+          </div>
+          </div>
+          </div>
+              <% end %>
+             <% end %>
+            <% end %>
+            </div>
+        </div>
+
+    <div class="white-text">
       <h1> Here are your personal bookings: </h1>
-        <% @reservations.each do |reservation| %>
-          <% spaceship = reservation.spaceship %>
-      <h5> <%= spaceship.name %> </h5>
-      <p> Cost to you: $<%= spaceship.price %> </p>
-        <% end %>
-
+      </div>
+              <% @reservations.each do |reservation| %>
+                <div class="card">
+                 <div class="card-body">
+                   <h5 class="card-title"> <% spaceship = reservation.spaceship %>
+                   <%= spaceship.name %> </h5>
+                   <p class="card-text"> Cost to you: $<%= spaceship.price %> </p>
+                 </div>
+               </div>
+          <% end %>
+        </div>
+        </div>
 <% end %>
