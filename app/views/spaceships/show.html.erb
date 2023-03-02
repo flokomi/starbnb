@@ -1,29 +1,50 @@
-<div class="background-star">
-  <div class="container display-body">
-    <div class="grid-show">
-      <div class="card-spaceship">
-        <%= cl_image_tag @spaceship.photo.key, class:"card-img", alt:"Spaceship-img" %>
-        <div class="card-details">
-          <h1><%= @spaceship.name %></h1>
-          <p><strong>€<%= @spaceship.price %></strong> day | Capacity: <%= @spaceship.capacity %></p>
-        </div>
-      </div>
 
-      <% if @spaceship.user_id == @user.id %>
-        <div>
-          <h1> This is your spaceship! </h1>
-        </div>
-      <% else %>
-        <div class="card-form">
-          <h2 class="form-h2">Do a reservation:</h2>
-          <%= simple_form_for [@spaceship, @reservation] do |f| %>
-            <%= f.input :start_date, as: :date, html5: true %>
-            <%= f.input :end_date, as: :date, html5: true %>
-            <%= f.input :total_guests %>
-            <%= f.button :submit, class: "btn btn-primary" %>
+<div class="grid-show">
+  <div class="card-spaceship">
+    <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="false">
+
+      <% if @spaceship.photos.present? %>
+        <div class="carousel-inner">
+          <% @spaceship.photos.each_with_index do |photo, index| %>
+            <div class="carousel-item <%= "active" if index == 0 %>">
+              <%= cl_image_tag photo.key, class:"card-img d-block w-100", alt:"Spaceship-img" %>
+            </div>
           <% end %>
         </div>
+
+        <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      <% else %>
+            <img src="https://images.unsplash.com/photo-1633984726552-3ed7296dc5c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="card-img" alt="Spaceship-img">
       <% end %>
+
+    </div>
+
+    <div class="card-details">
+      <h1><%= @spaceship.name %></h1>
+      <p><strong>€<%= @spaceship.price %></strong> day | Capacity: <%= @spaceship.capacity %></p>
     </div>
   </div>
+
+  <% if @spaceship.user_id == @user.id %>
+    <div>
+      <h1> This is your spaceship! </h1>
+    </div>
+  <% else %>
+    <div class="card-form">
+      <h2 class="form-h2">Do a reservation:</h2>
+      <%= simple_form_for [@spaceship, @reservation] do |f| %>
+        <%= f.input :start_date, as: :date, html5: true %>
+        <%= f.input :end_date, as: :date, html5: true %>
+        <%= f.input :total_guests %>
+        <%= f.button :submit, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  <% end %>
 </div>

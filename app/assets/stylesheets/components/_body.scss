@@ -21,10 +21,19 @@ a {
 
 body {
   font-family: $body-font;
+  position: relative;
 }
 
 .wrapper {
   display: grid;
   min-height: 100vh;
   grid-template-rows: auto 1fr auto;
+}
+
+.search-bar {
+  width: 400px;
+  position: absolute;
+  top: 13px;
+  left: 36%;
+
 }

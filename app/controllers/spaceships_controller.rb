@@ -1,6 +1,10 @@
 class SpaceshipsController < ApplicationController
   def index
-    @spaceships = Spaceship.all
+    if params[:query].present?
+      @spaceships = Spaceship.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @spaceships = Spaceship.all
+    end
   end
 
   def show
@@ -26,6 +30,6 @@ class SpaceshipsController < ApplicationController
   private
 
   def spaceship_params
-    params.require(:spaceship).permit(:name, :price, :capacity, :photo)
+    params.require(:spaceship).permit(:name, :price, :capacity, photos: [])
   end
 end
