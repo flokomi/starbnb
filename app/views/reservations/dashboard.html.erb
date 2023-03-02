@@ -21,13 +21,14 @@
      <% elsif @spaceships.empty? == false && @reservations.empty? == false %>
       <h1> Here are your spaceships and guest bookings: </h1>
         <% @spaceships.each do |spaceship| %>
+        <%= spaceship.name %>
           <% @reservations_all.each do |reservation| %>
             <% if reservation.spaceship_id == spaceship.id %>
               <% space_user_id = reservation.user_id %>
                <% res_user = User.find(space_user_id) %>
                 <%= res_user.name %>
-                <%= spaceship.name %>
-                <p> Your guest's reservation price: <%= reservation.price %> </p>
+                  <p> Your guest's reservation price: <%= reservation.price %> </p>
+                <% raise %>
             <% end %>
           <% end %>
         <% end %>
