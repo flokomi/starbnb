@@ -29,8 +29,9 @@ all_users.each do |user|
   4.times do
   Spaceship.create!(
     name: Faker::Name.first_name.to_s,
-    price: rand(150..100_000),
-    capacity: rand(1..50),
+    price: rand(100..1000),
+    capacity: rand(1..5),
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, placeat. Suscipit facilis dicta ullam, quos praesentium qui accusantium! Fuga odio delectus harum magnam, magni iure ipsam nemo atque iusto corporis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Non officia eos cupiditate iusto aliquid minima accusamus, nemo repudiandae est, voluptates blanditiis voluptatum quaerat delectus eum dolorum! Voluptas praesentium autem eos?",
     user: user
   )
  end

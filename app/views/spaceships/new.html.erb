@@ -1,5 +1,5 @@
 <div class="background-star">
-  <div class="container display-body">
+  <div class="container-form display-body">
     <div class="card-create-spaceship">
       <div class="content-create-spaceship">
         <h2>Add spaceship:</h2>
@@ -7,6 +7,7 @@
           <%= f.input :name %>
           <%= f.input :price %>
           <%= f.input :capacity %>
+          <%= f.input :description %>
           <%= f.input :photo, as: :file %>
           <%= f.button :submit, class: "btn btn-primary"%>
         <% end %>

@@ -5,7 +5,11 @@
         <%= cl_image_tag @spaceship.photo.key, class:"card-img", alt:"Spaceship-img" %>
         <div class="card-details">
           <h1><%= @spaceship.name %></h1>
-          <p><strong>€<%= @spaceship.price %></strong> day | Capacity: <%= @spaceship.capacity %></p>
+          <div class="card-details-features">
+          <p>€<strong><%= @spaceship.price %></strong> per night</p>
+          <p>Capacity: <%= @spaceship.capacity %></p>
+          </div>
+          <p><%= @spaceship.description %></p>
         </div>
       </div>
 
