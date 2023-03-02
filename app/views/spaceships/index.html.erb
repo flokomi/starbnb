@@ -2,11 +2,12 @@
   <% @spaceships.each do |spaceship| %>
     <div class="card-star">
       <%= link_to "", spaceship_path(spaceship), class: "card-link"%>
-      <% if spaceship.photo.key %>
-        <%= cl_image_tag spaceship.photo.key, class:"card-img", alt:"Spaceship-img" %>
-      <% else %>
-        <img src="https://images.unsplash.com/photo-1633984726552-3ed7296dc5c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="card-img" alt="Spaceship-img">
-      <% end %>
+        <% if spaceship.photos.present? %>
+          <%= cl_image_tag spaceship.photos.first.key, class:"card-img", alt:"Spaceship-img" %>
+        <% else %>
+          <img src="https://images.unsplash.com/photo-1633984726552-3ed7296dc5c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="card-img" alt="Spaceship-img">
+        <% end %>
+
       <div class="card-content">
         <p><%= spaceship.name %></p>
         <p>$<%= spaceship.price %></p>
