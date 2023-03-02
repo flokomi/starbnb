@@ -32,9 +32,7 @@ class SpaceshipsController < ApplicationController
   end
 
   def update
-    @spaceship_alt = Spaceship.find(params[:id])
-    @spaceship = Spaceship.new(spaceship_params)
-    raise
+    @spaceship.update(spaceship_params)
     redirect_to spaceship_path(@spaceship)
   end
 
