@@ -1,5 +1,19 @@
 <div class="background-star">
   <div class="container display-body">
+
+    <!-- SEARCH-BAR -->
+    <div class="search-bar">
+      <%= form_with url: spaceships_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a spaceship"
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+
+    <!-- CARDS -->
     <div class="grid-four-col">
       <% @spaceships.each do |spaceship| %>
           <div class="card-star">
