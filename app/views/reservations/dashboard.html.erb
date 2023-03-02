@@ -20,10 +20,13 @@
       </div>
 
    <% elsif @spaceships.empty? == false && @reservations.empty? %>
+   <div class="white-text">
     <p> Your spaceships: </p>
      <% @spaceships.each do | spaceship | %>
       <%= spaceship.name %>
+      <% raise %>
      <% end %>
+     </div>
 
   <% elsif @spaceships.empty? == false && @reservations.empty? == false %>
   <div class="white-text">
