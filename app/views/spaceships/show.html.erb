@@ -2,7 +2,7 @@
   <div class="container display-body">
     <div class="grid-show">
       <div class="card-spaceship">
-        <img src="https://res.cloudinary.com/dzotx5j9x/image/upload/v1677709457/development/<%= "#{@spaceship.photo.key}" %>" class="card-img" alt="Spaceship-img">
+        <%= cl_image_tag @spaceship.photo.key, class:"card-img", alt:"Spaceship-img" %>
         <div class="card-details">
           <h1><%= @spaceship.name %></h1>
           <p><strong>€<%= @spaceship.price %></strong> day | Capacity: <%= @spaceship.capacity %></p>
