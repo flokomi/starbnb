@@ -14,7 +14,10 @@
 
 
   <% elsif @spaceships.empty? == false && @reservations.empty? %>
-     <%= spaceships.name %>
+    <p> Your spaceships: </p>
+     <% @spaceships.each do | spaceship | %>
+     <%= spaceship.name %>
+     <% end %>
      <% elsif @spaceships.empty? == false && @reservations.empty? == false %>
       <h1> Hello! Here are your spaceships and guest bookings: </h1>
         <% @spaceships.each do |spaceship| %>
