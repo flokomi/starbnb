@@ -1,10 +1,11 @@
 <div class="card-create-spaceship">
   <div class="content-create-spaceship">
-    <h1>Add a new Spaceship:</h1>
+    <h2>Add spaceship:</h2>
     <%= simple_form_for @spaceship do |f| %>
       <%= f.input :name %>
       <%= f.input :price %>
       <%= f.input :capacity %>
+      <%= f.input :photo, as: :file %>
       <%= f.button :submit, class: "btn btn-primary"%>
     <% end %>
   </div>

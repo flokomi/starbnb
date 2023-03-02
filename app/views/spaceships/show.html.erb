@@ -1,8 +1,10 @@
 <div class="grid-show">
-  <div class="card-info">
-    <h1><%= @spaceship.name %></h1>
-    <p>Price: € <%= @spaceship.price %></p>
-    <p>Capacity: <%= @spaceship.capacity %></p>
+  <div class="card-spaceship">
+    <%= cl_image_tag @spaceship.photo.key, class:"card-img", alt:"Spaceship-img" %>
+    <div class="card-details">
+      <h1><%= @spaceship.name %></h1>
+      <p><strong>€<%= @spaceship.price %></strong> day | Capacity: <%= @spaceship.capacity %></p>
+    </div>
   </div>
 
   <% if @spaceship.user_id == @user.id %>
