@@ -17,6 +17,7 @@ class ReservationsController < ApplicationController
   def dashboard
     @spaceships = Spaceship.where("user_id = #{current_user.id}")
     @reservations = Reservation.where("user_id = #{current_user.id}")
+    @reservations_all = Reservation.all
     @spaceships_all = Spaceship.all
   end
 
