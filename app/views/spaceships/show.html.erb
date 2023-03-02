@@ -41,14 +41,19 @@
       <h1> This is your spaceship! </h1>
     </div>
   <% else %>
-    <div class="card-form">
+    <div class="card-form" data-controller="hello">
       <h2 class="form-h2">Reserve this ship:</h2>
       <%= simple_form_for [@spaceship, @reservation] do |f| %>
+        <div class="form-inputs" data-action ="keypress->hello#displayTotal">
         <%= f.input :start_date, as: :date, html5: true %>
         <%= f.input :end_date, as: :date, html5: true %>
+        <%# input_html: { "data-hello-target" => "content" } %>
         <%= f.input :total_guests %>
+        </div>
         <%= f.button :submit, class: "btn btn-primary" %>
       <% end %>
+
+
     </div>
   <% end %>
 </div>

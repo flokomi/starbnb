@@ -11,6 +11,7 @@ class SpaceshipsController < ApplicationController
     @reservation = Reservation.new
     @user = current_user
     @spaceship = Spaceship.find(params[:id])
+    # render json: @spaceship
   end
 
   def new
@@ -32,4 +33,8 @@ class SpaceshipsController < ApplicationController
   def spaceship_params
     params.require(:spaceship).permit(:name, :price, :capacity, :photo, :description)
   end
+
+  # def json_response(object, status = :ok)
+  #   render json: object, status: status
+  # end
 end
