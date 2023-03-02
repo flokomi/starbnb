@@ -18,11 +18,12 @@
         <div class="container display-body">
           <%= yield %>
         </div>
+        <div>
+          <%= render "shared/flashes" %>
+          </div>
       </div>
       <%= render "shared/footer" %>
     </div>
-
-    <div><%= render "shared/flashes" %></div>
 
 
     <!-- IMPORTING BOOTSTRAP JS FOR IMAGE CAROUSEL -->
@@ -33,13 +34,3 @@
   </body>
 
 </html>
-
-<!-- WE SHOULD USE THIS TO STRUCTURE OUR PAGES - WATCH MESSAGE ON SLACK FROM ALEX
-
-<%# <div class="page-container">
- <div class="navbar-container"><%= render "shared/navbar" %></div>
- <div class="content-container"><%= yield %></div>
- <div class="footer-container"><%= render "shared/footer" %></div>
-</div> %>
-
--->
