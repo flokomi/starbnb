@@ -42,7 +42,7 @@
     </div>
   <% else %>
     <div class="card-form">
-      <h2 class="form-h2">Do a reservation:</h2>
+      <h2 class="form-h2">Reserve this ship:</h2>
       <%= simple_form_for [@spaceship, @reservation] do |f| %>
         <%= f.input :start_date, as: :date, html5: true %>
         <%= f.input :end_date, as: :date, html5: true %>

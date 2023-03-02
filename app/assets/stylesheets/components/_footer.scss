@@ -3,8 +3,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 75px;
   color: rgba(0, 0, 0, 0.3);
+}
+
+.footer-copyright {
+  display: flex;
+  align-items: baseline;
+  margin: auto 0;
+  gap: 5px;
 }
 
 .footer-links {
