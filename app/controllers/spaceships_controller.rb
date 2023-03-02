@@ -30,6 +30,6 @@ class SpaceshipsController < ApplicationController
   private
 
   def spaceship_params
-    params.require(:spaceship).permit(:name, :price, :capacity, photos: [])
+    params.require(:spaceship).permit(:name, :price, :capacity, :photo, :description)
   end
 end
