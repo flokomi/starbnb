@@ -1,15 +1,11 @@
-<div class="background-star">
-  <div class="container display-body">
-    <div class="card-create-spaceship">
-      <div class="content-create-spaceship">
-        <h1>Add a new Spaceship:</h1>
-        <%= simple_form_for @spaceship do |f| %>
-          <%= f.input :name %>
-          <%= f.input :price %>
-          <%= f.input :capacity %>
-          <%= f.button :submit, class: "btn btn-primary"%>
-        <% end %>
-      </div>
-    </div>
+<div class="card-create-spaceship">
+  <div class="content-create-spaceship">
+    <h1>Add a new Spaceship:</h1>
+    <%= simple_form_for @spaceship do |f| %>
+      <%= f.input :name %>
+      <%= f.input :price %>
+      <%= f.input :capacity %>
+      <%= f.button :submit, class: "btn btn-primary"%>
+    <% end %>
   </div>
 </div>
