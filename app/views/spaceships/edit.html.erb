@@ -1,0 +1,17 @@
+<div class="background-star">
+  <div class="container-form display-body">
+    <div class="card-create-spaceship">
+      <div class="content-create-spaceship">
+        <h2>Edit spaceship:</h2>
+        <%= simple_form_for(@spaceship) do |f| %>
+          <%= f.input :name %>
+          <%= f.input :price %>
+          <%= f.input :capacity %>
+          <%= f.input :description %>
+          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+          <%= f.button :submit, class: "btn btn-primary"%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
