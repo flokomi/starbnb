@@ -1,28 +1,26 @@
 <% if @spaceships.empty? %>
-<h1> Hello! Here are your reservations: </h1>
-<% @reservations.each do |reservation| %>
-  <% spaceship = reservation.spaceship %>
- <h5> <%= spaceship.name %> </h5>
-<% @reservations.each do |reservation| %>
-<% if %>
-<p> Cost: $<%= reservation.price %> </p>
-<% end %>
-<% end %>
-<% end %>
+  <h1> Hello! Here are your reservations: </h1>
+    <% @reservations.each do |reservation| %>
+      <% spaceship = reservation.spaceship %>
+        <h5> <%= spaceship.name %> </h5>
+          <% @reservations.each do |reservation| %>
+          <p> Cost: $<%= reservation.price %> </p>
+          <% end %>
+    <% end %>
+  <% end %>
 
 
-<% else  %>
 
 <h1> Hello! Here are your spaceships and guest bookings: </h1>
-<% @spaceships.each do |spaceship| %>
-<% @reservations.each do |reservation| %>
+  <% @spaceships.each do |spaceship| %>
+    <% @reservations.each do |reservation| %>
 <% if reservation.spaceship_id == spaceship.id %>
 <%= spaceship.name %>
 <p> Your guest's reservation price: <%= reservation.price %> </p>
 <% end %>
 <% end %>
 <% end %>
-<% end %>
+
 <h1> Here are your personal bookings: </h1>
 <% @reservations.each do |reservation| %>
   <% spaceship = reservation.spaceship %>
