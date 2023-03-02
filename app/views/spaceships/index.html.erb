@@ -1,14 +1,14 @@
 <div class="container display-body">
 
   <!-- SEARCH-BAR -->
-  <div class="search-bar">
+  <div class="search-bar search-hover">
     <%= form_with url: spaceships_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query,
         params[:query],
         class: "form-control",
         placeholder: "Find a spaceship"
       %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
+      <%= submit_tag "Search", class: "btn btn-primary search-hover" %>
     <% end %>
   </div>
 
@@ -24,9 +24,11 @@
         <% end %>
 
         <div class="card-content">
-          <p><%= spaceship.name %></p>
-          <p>$<%= spaceship.price %></p>
-          <p>Capacity: <%= spaceship.capacity %></p>
+          <h4><%= spaceship.name %></h4>
+          <div class="card-content-lower">
+            <p><strong>€<%= spaceship.price %></strong> per day</p>
+            <p>Capacity: <%= spaceship.capacity %></p>
+          </div>
         </div>
       </div>
     <% end %>
