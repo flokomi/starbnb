@@ -1,5 +1,7 @@
 <% if @spaceships.empty? && @reservations.empty? %>
-      <p>No reservations or spaceships.</p>
+<div class="white-text">
+      <h1>No reservations or spaceships.</h1>
+      </div>
 
   <% elsif @spaceships.empty? %>
   <div class="white-text">
@@ -19,16 +21,8 @@
         </div>
       </div>
 
-   <% elsif @spaceships.empty? == false && @reservations.empty? %>
-   <div class="white-text">
-    <p> Your spaceships: </p>
-     <% @spaceships.each do | spaceship | %>
-      <%= spaceship.name %>
-      <% raise %>
-     <% end %>
-     </div>
+  <% else %>
 
-  <% elsif @spaceships.empty? == false && @reservations.empty? == false %>
   <div class="white-text">
         <h1> Here are your spaceships and guest bookings: </h1>
         </div>
@@ -42,8 +36,8 @@
                 <% if reservation.spaceship_id == spaceship.id %>
                   <% space_user_id = reservation.user_id %>
                     <% res_user = User.find(space_user_id) %>
-                    <p class="card-text"> <%= res_user.name %> </p>
-                    <p class="card-text"> Your guest's reservation price: <%= reservation.price %> </p>
+                    <p class="card-text"> Guest name: <%= res_user.name %> </p>
+                    <p class="card-text"> Your guest's reservation price: $<%= reservation.price %> </p>
           </div>
           </div>
           </div>
@@ -52,10 +46,19 @@
             <% end %>
             </div>
         </div>
-        <h1> Here are your personal bookings: </h1>
-          <% @reservations.each do |reservation| %>
-            <% spaceship = reservation.spaceship %>
-              <h5> <%= spaceship.name %> </h5>
-              <p> Cost to you: $<%= spaceship.price %> </p>
+
+    <div class="white-text">
+      <h1> Here are your personal bookings: </h1>
+      </div>
+              <% @reservations.each do |reservation| %>
+                <div class="card">
+                 <div class="card-body">
+                   <h5 class="card-title"> <% spaceship = reservation.spaceship %>
+                   <%= spaceship.name %> </h5>
+                   <p class="card-text"> Cost to you: $<%= spaceship.price %> </p>
+                 </div>
+               </div>
           <% end %>
+        </div>
+        </div>
 <% end %>
