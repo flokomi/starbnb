@@ -1,7 +1,7 @@
 class Spaceship < ApplicationRecord
   belongs_to :user
   has_many :reservations
-  has_one_attached :photo
+  has_many_attached :photos
 
   validates :name, presence: true, uniqueness: true
   validates :price, presence: true
