@@ -1,15 +1,19 @@
 <% if @spaceships.empty? && @reservations.empty? %>
       <p>No reservations or spaceships.</p>
-      
+
   <% elsif @spaceships.empty? %>
     <h1> Hello! Here are your reservations: </h1>
       <div class="container display-body">
         <div class="grid-four-col">
           <% @reservations.each do |reservation| %>
-            <% spaceship = reservation.spaceship %>
-              <h5> <%= spaceship.name %> </h5>
-                <p> Cost: $<%= reservation.price %> </p>
-         <% end %>
+            <div class="card">
+             <div class="card-body">
+              <% spaceship = reservation.spaceship %>
+                <h5 class="card-title"> <%= spaceship.name %> </h5>
+                <p class="card-text"> Cost: $<%= reservation.price %> </p>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
 
