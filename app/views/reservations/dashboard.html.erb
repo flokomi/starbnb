@@ -1,5 +1,5 @@
 <% if @spaceships.empty? && @reservations.empty? %>
-      <p>No reservations.</p>
+      <p>No reservations or spaceships.</p>
   <% elsif @spaceships.empty? %>
     <h1> Hello! Here are your reservations: </h1>
       <% @reservations.each do |reservation| %>
@@ -19,7 +19,7 @@
      <%= spaceship.name %>
      <% end %>
      <% elsif @spaceships.empty? == false && @reservations.empty? == false %>
-      <h1> Hello! Here are your spaceships and guest bookings: </h1>
+      <h1> Here are your spaceships and guest bookings: </h1>
         <% @spaceships.each do |spaceship| %>
           <% @reservations_all.each do |reservation| %>
             <% if reservation.spaceship_id == spaceship.id %>
