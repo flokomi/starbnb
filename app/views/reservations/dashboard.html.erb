@@ -1,5 +1,3 @@
-
-
 <% if @spaceships.empty? && @reservations.empty? %>
   <div class="white-text">
     <h1>No reservations or spaceships.</h1>
@@ -10,38 +8,59 @@
   </div>
   <div class="grid-four-col">
     <% @reservations.each do |reservation| %>
-      <% spaceship = reservation.spaceship %>
-      <h5 class="card-title"> <%= spaceship.name %> </h5>
-      <p class="card-text"> Cost: $<%= reservation.price %> </p>
-      <% end %>
-  </div>
-<% else %>
-  <div class="white-text">
-    <h1> Here are your spaceships and guest bookings: </h1>
-  </div>
-  <div class="grid-four-col">
-    <% @spaceships.each do |spaceship| %>
-      <h5 class="card-title"> <%= spaceship.name %> </h5>
-      <% @reservations_all.each do |reservation| %>
-        <% if reservation.spaceship_id == spaceship.id %>
-        <% space_user_id = reservation.user_id %>
-        <% res_user = User.find(space_user_id) %>
-        <p class="card-text"> Guest name: <%= res_user.name %> </p>
-        <p class="card-text"> Your guest's reservation price: $<%= reservation.price %></p>
-        <% end %>
-      <% end %>
+      <div class="card-owner">
+        <% spaceship = reservation.spaceship %>
+        <h5 class="card-title"> <%= spaceship.name %> </h5>
+        <div id="card-owner-content-alt">
+          <p class="card-owner-text">Booked from <%= reservation.start_date %> until <%= reservation.end_date %> (<%= (reservation.end_date - reservation.start_date).to_i %> nights)</p>
+          <p class="card-owner-text">You are paying: $<%= spaceship.price %> </p>
+        </div>
+      </div>
     <% end %>
   </div>
-  <div class="white-text">
-    <h1> Here are your personal bookings: </h1>
+<% else %>
+  <div class="owner-section">
+    <div class="white-text">
+      <h1> Here are your spaceships and guest bookings: </h1>
+    </div>
+    <div class="grid-four-col">
+      <% @spaceships.each do |spaceship| %>
+        <div class="card-owner">
+          <%= link_to "", spaceship_path(spaceship), class: "card-owner-link"%>
+          <h5 class="card-title"> <%= spaceship.name %> </h5>
+          <% @reservations_all.each do |reservation| %>
+            <% if reservation.spaceship_id == spaceship.id %>
+              <div id="card-owner-content">
+                <p class="card-owner-text"> Guest name: <%= reservation.user.name %> </p>
+                <p class="card-owner-text">Booked from <%= reservation.start_date %> until <%= reservation.end_date %> (<%= (reservation.end_date - reservation.start_date).to_i %> nights)</p>
+                <p class="card-owner-text"> Your guest is paying: $<%= reservation.price %></p>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <% if @spaceships.empty? == false && @reservations.empty? %>
-    <h3>No bookings.</h3>
-  <% end %>
 
-  <% @reservations.each do |reservation| %>
-    <h5 class="card-title"> <% spaceship = reservation.spaceship %>
-    <%= spaceship.name %> </h5>
-    <p class="card-text"> Cost to you: $<%= spaceship.price %> </p>
-  <% end %>
+  <div class="user-section">
+    <div class="white-text">
+      <h1> Here are your personal bookings: </h1>
+    </div>
+    <% if @spaceships.empty? == false && @reservations.empty? %>
+      <h3>No bookings.</h3>
+    <% else %>
+      <div class="grid-four-col">
+        <% @reservations.each do |reservation| %>
+          <div class="card-owner">
+            <h5 class="card-title"> <% spaceship = reservation.spaceship %>
+            <%= spaceship.name %> </h5>
+            <div id="card-owner-content-alt">
+              <p class="card-owner-text">Booked from <%= reservation.start_date %> until <%= reservation.end_date %> (<%= (reservation.end_date - reservation.start_date).to_i %> nights)</p>
+              <p class="card-owner-text">You are paying: $<%= spaceship.price %> </p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 <% end %>
