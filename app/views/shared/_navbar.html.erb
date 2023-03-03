@@ -1,7 +1,7 @@
- <div class="navbar navbar-expand-sm align-content-md-stretch navbar-light navbar-lewagon sticky" data-controller="sticky_navbar">
+ <div class="navbar navbar-expand-sm align-content-md-stretch navbar-light navbar-lewagon">
     <div class=" container container_fluid">
       <%= link_to root_path, class: "navbar-brand" do %>
-        <%= image_tag "https://dspncdn.com/a1/media/472x/7d/ad/14/7dad14cdafb54ffeeceab7c50a817a4a.jpg" %>
+        <i class="fa-solid fa-rocket navbar-logo"></i>
       <% end %>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,7 +13,7 @@
           <% if user_signed_in? %>
             <li class="nav-item dropdown">
               <%# image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-              <span class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa-solid fa-user"></i></span>
+              <span class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa-solid fa-user navbar-icon"></i></span>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
                 <%= link_to "Add Spaceship", new_spaceship_path, class: "dropdown-item" %>
