@@ -1,7 +1,11 @@
 class SpaceshipsController < ApplicationController
   def index
     if params[:query].present?
-      @spaceships = Spaceship.where("name ILIKE ?", "%#{params[:query]}%")
+      sql_query = <<~SQL
+        spaceships.name ILIKE :query
+        OR users.name ILIKE :query
+      SQL
+      @spaceships = Spaceship.joins(:user).where(sql_query, query: "%#{params[:query]}%")
     else
       @spaceships = Spaceship.all
     end
