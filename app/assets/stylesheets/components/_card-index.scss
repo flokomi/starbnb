@@ -43,14 +43,24 @@
 .card-content {
   display: flex;
   flex-direction: column;
-  padding: 10px;
-  gap: 8px;
+  padding: 15px 10px 0px 10px;
   font-size: larger;
   color: black;
   justify-content: left;
 
-  >h4 {
+  >h2 {
     margin: 0;
+    font-size: 2.2rem;
+  }
+}
+
+.card-content-upper {
+  display: flex;
+  justify-content: space-between;
+
+  >p {
+    margin-bottom: 0.5rem;
+    margin-top: 0.4rem;
   }
 }
 

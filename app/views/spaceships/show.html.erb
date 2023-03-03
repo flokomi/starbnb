@@ -27,12 +27,15 @@
     </div>
 
     <div class="card-details">
-      <h1><%= @spaceship.name %></h1>
-      <div class="card-details-features">
-      <p>€<strong><%= @spaceship.price %></strong> per night</p>
-      <p>Capacity: <%= @spaceship.capacity %></p>
+      <div class="flex-title">
+        <h1><%= @spaceship.name %></h1>
+        <p>*<%= @spaceship.user.name %></p>
       </div>
-      <p><%= @spaceship.description %></p>
+      <div class="card-details-features">
+        <p>€<strong><%= @spaceship.price %></strong> per night</p>
+        <p>Capacity: <%= @spaceship.capacity %></p>
+      </div>
+      <p class="card-description"><%= @spaceship.description %></p>
     </div>
   </div>
 
@@ -54,8 +57,6 @@
         <%# </div> %>
         <%= f.button :submit, class: "btn btn-primary" %>
       <% end %>
-
-
     </div>
   <% end %>
 </div>
