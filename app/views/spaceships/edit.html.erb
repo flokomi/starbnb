@@ -2,8 +2,8 @@
   <div class="container-form display-body">
     <div class="card-create-spaceship">
       <div class="content-create-spaceship">
-        <h2>Add spaceship:</h2>
-        <%= simple_form_for @spaceship do |f| %>
+        <h2>Edit spaceship:</h2>
+        <%= simple_form_for(@spaceship) do |f| %>
           <%= f.input :name %>
           <%= f.input :price %>
           <%= f.input :capacity %>

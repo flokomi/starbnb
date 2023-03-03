@@ -39,3 +39,12 @@ body {
   left: 36%;
   z-index: 2;
 }
+
+.search-hover {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+
+  &:hover {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+    transition: 0.5s ease;
+  }
+}

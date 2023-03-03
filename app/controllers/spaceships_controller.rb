@@ -28,10 +28,25 @@ class SpaceshipsController < ApplicationController
     end
   end
 
+  def edit
+    @spaceship = Spaceship.find(params[:id])
+  end
+
+  def update
+    @spaceship.update(spaceship_params)
+    redirect_to spaceship_path(@spaceship)
+  end
+
+  def destroy
+    @spaceship = Spaceship.find(params[:id])
+    @spaceship.destroy
+    redirect_to spaceships_path
+  end
+
   private
 
   def spaceship_params
-    params.require(:spaceship).permit(:name, :price, :capacity, :photo, :description)
+    params.require(:spaceship).permit(:name, :price, :capacity, :description, photos: [])
   end
 
   # def json_response(object, status = :ok)
