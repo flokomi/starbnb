@@ -3,5 +3,14 @@
   color: white;
   grid-template-columns: 2fr 1fr;
   grid-gap: 20px;
-  padding: 25px 0
+  padding: 25px 0;
+}
+
+#btn-star {
+  width: 100px;
+}
+
+.show-buttons {
+  display: flex;
+  gap: 10px;
 }
