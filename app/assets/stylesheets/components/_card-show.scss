@@ -19,12 +19,23 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding-left: 5px;
+  font-size: larger;
+  padding: 10px 10px 0px 10px;
   margin-top: 10px;
 
   .card-details-features {
     display: flex;
     justify-content: space-between;
+  }
+
+  .flex-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-description {
+    text-align: justify;
   }
 
   h1 {
@@ -41,6 +52,11 @@
   height: fit-content;
   margin-left: auto;
   margin-right: auto;
+}
+
+.sticky {
+  position: fixed;
+  top: 25px;
 }
 
 .owner-info {
