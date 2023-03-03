@@ -33,6 +33,7 @@ class SpaceshipsController < ApplicationController
   end
 
   def update
+    @spaceship = Spaceship.find(params[:id])
     @spaceship.update(spaceship_params)
     redirect_to spaceship_path(@spaceship)
   end
