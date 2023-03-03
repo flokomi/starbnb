@@ -24,9 +24,12 @@
         <% end %>
 
         <div class="card-content">
-          <h4><%= spaceship.name %></h4>
+          <div class="card-content-upper">
+            <h2><%= spaceship.name %></h2>
+            <p>*<%= spaceship.user.name %></p>
+          </div>
           <div class="card-content-lower">
-            <p><strong>€<%= spaceship.price %></strong> per day</p>
+            <p><strong>€<%= spaceship.price %></strong> per night</p>
             <p>Capacity: <%= spaceship.capacity %></p>
           </div>
         </div>
